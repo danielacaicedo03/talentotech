@@ -1,5 +1,3 @@
-const e = require("express");
-
 const pokemonList = document.getElementById("pokemonList");
 const pokemonDetail = document.getElementById ("pokemonDetail");
 const pokemonInfo = document.getElementById("pokemonInfo");
@@ -31,6 +29,7 @@ function displayPokemon(pokemon){  //mostrar pokemones display:mostrar pokemone 
     <h2>lista de pokemon</h2>
     <h3 class="name">${pokemon.name}</h3>
     <h2 class="idNumber">${pokemon.id}</h2>
+    <h4 class="weight">${pokemon.weight}</h4>
     <img src=${pokemon.sprites.front_shiny} alt="${pokemon.name}">
     <h3>Tipos de pokemon</h3>
     <p>${pokemonTypes}</p>
@@ -55,9 +54,9 @@ function displayPokemon(pokemon){  //mostrar pokemones display:mostrar pokemone 
         <h2>Detalle de pokemon</h2>
         <h3 class="name">${pokemon.name}</h3>
         <h2 class="idNumber">${pokemon.id}</h2>
-        <img src=${pokemon.sprites.front_shiny}
-        <h4>ooke detail</h4>      
-        `
+        <h4 class= "weight">${pokemon.weight}</h4>
+        <img src=${pokemon.sprites.front_shiny}>
+       `
 }
             
 backBtn.addEventListener("click",()=>{
@@ -84,7 +83,7 @@ async function searchPokemon() {
 searchBtn.addEventListener("click",()=>searchPokemon())
 
 async function loadPokedex() {
-    for (let i=1; i<2; i++){
+    for (let i=1; i<51; i++){
      const pokemon = await fetchPokemonData(i);
      displayPokemon(pokemon)   
 }
